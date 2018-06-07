@@ -15,7 +15,7 @@
              Time: O(k^3)
              Space: O(k^3), worst case
  #####  For individual methods, the space-time is as follows (worst case scenarios):
-        In problem2.ipynb : 
+        In problem2.ipynb : Sorting T - O(nlog n), where n is the size of the file. S-O(1), since sorting was in-place. This was the most expensive computation in terms of Time. In terms of Space, the most expensive computations were creating unique lists of players along with the teams they've played for: O(p), and unique list of teams - O(k).
         In DownloadFiles.java : T- O(n), S- O(n), where n is the number of events.
         In DataManipulation.java:
                     getListTeams: T- O(n), S- O(k), where n is the size of the original file containing all teams, and k i sthe hashset size containing unique values of team names.
