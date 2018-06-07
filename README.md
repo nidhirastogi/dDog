@@ -15,10 +15,18 @@
              Time:
              Space:
  #####  For individual methods, the space-time is as follows:
- 
+        In problem2.ipynb : 
+        In DownloadFiles.java : T- O(n), S- O(n), where n is the number of events.
+        In DataManipulation.java:
+                    getListTeams: T- O(n), S- O(k), where n is the size of the original file containing all teams, and k i sthe hashset size containing unique values of team names.
+            getTeamUniqueTriples: T- O(), S- O()
+                  getListPlayers: T- O(), S- O()
+          getPlayersTeamsTriples: T- O(), S- O()
+     getTripleTeamswith50Players: T- O(), S- O()
+     
  #####  Steps for the Program2: 
  1. Get all Unique Team Names	and player names - Time: O(n), Space : O(k)+O(p) = O(k+p)
  2. Sort List by Player names - O(n log n)
- 3. HashSet containing unique combination of 3 teams, in alphabetical order or team names (to avoid multiple of same combination of teams). Time - O(k3), Space O(k*k*k)
+ 3. HashSet containing unique combination of 3 teams, in alphabetical order or team names (to avoid multiple of same combination of teams). Time - O(k3), Space O(k^3)
  4. HasSet in this Format : HashSet<String, List<List<String>,Integer>> -> hashset with key value pair. Here "key" is unique triple combination and value is a list of names of players and "count" of these players
  5. Finally select only those keys that have count in the value as greater than or equal to 50.
