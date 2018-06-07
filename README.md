@@ -7,8 +7,6 @@
 ###### For Problem 2, Our results show that there is no team-triple combination that has more than 50 players who've played for them. The output screenshots are saved in individual folders for the two problems
 -----------------
 ##### Discussion on Time-Space Complexity for Problem 2
-
-// Space Time Complexity
  - n = length of entire list from all years
  - k = number of unique teams
  - p = number of unique players
