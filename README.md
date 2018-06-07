@@ -12,17 +12,17 @@
  - p = number of unique players
  
  #####  The overall Program Complexity is: 
-             Time:
-             Space:
- #####  For individual methods, the space-time is as follows:
+             Time: O(k^3)
+             Space: O(k^3), worst case
+ #####  For individual methods, the space-time is as follows (worst case scenarios):
         In problem2.ipynb : 
         In DownloadFiles.java : T- O(n), S- O(n), where n is the number of events.
         In DataManipulation.java:
                     getListTeams: T- O(n), S- O(k), where n is the size of the original file containing all teams, and k i sthe hashset size containing unique values of team names.
-            getTeamUniqueTriples: T- O(), S- O()
-                  getListPlayers: T- O(), S- O()
-          getPlayersTeamsTriples: T- O(), S- O()
-     getTripleTeamswith50Players: T- O(), S- O()
+            getTeamUniqueTriples: T- O(k^3), S- O(k^3), where k is the team size
+                  getListPlayers: T- O(p), S- O(p), where p is the number of player that have played for >2 teams.
+          getPlayersTeamsTriples: T- O(p^3), S- O(p^3)
+     getTripleTeamswith50Players: T- O(p^3)+O(k^3), S- O(k^3)
      
  #####  Steps for the Program2: 
  1. Get all Unique Team Names	and player names - Time: O(n), Space : O(k)+O(p) = O(k+p)
