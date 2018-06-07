@@ -56,30 +56,31 @@ public class DataManipulation2 {
         Map<String,ArrayList<String>> playerteamsTriples= getPlayersTeamsTriples(playerInTeams);
         
         Map<String,ArrayList<String>> finalOutput = getTripleTeamswith50Players(teamUniqueTriples,playerteamsTriples);
+        
+        
 
    }
 
    private static HashSet<String> getListTeams(String FILETEAM) throws FileNotFoundException, IOException{
 	   
-	   String values = null;
        //System.out.println(new File("").getAbsoluteFile());
        File file= new File(FILETEAM);
 
        HashSet<String> listTeams = new HashSet<String>();       		
        
-        Scanner inputStream = inputStream = new Scanner(file);
-
-           while(inputStream.hasNext()){
-               String teamName= inputStream.next();
-               // this adds the currently parsed line to a Hashset with unique team name values
-              	listTeams.add(teamName.replaceAll("\\p{P}",""));
-              	 //System.out.println(teamName);
-              }
-              
-           System.out.println("length: "+listTeams.size()); // list with unique team names
-           
- 
-      return listTeams;
+	    Scanner inputStream = new Scanner(file);
+	
+	       while(inputStream.hasNext()){
+	           String teamName= inputStream.next();
+	           // this adds the currently parsed line to a Hashset with unique team name values
+	          	listTeams.add(teamName.replaceAll("\\p{P}",""));
+	          	 //System.out.println(teamName);
+	          }
+	          
+	       //System.out.println("length: "+listTeams.size()); // list with unique team names
+	       
+	      inputStream.close();  
+	      return listTeams;
 
    }
       
@@ -89,11 +90,11 @@ public class DataManipulation2 {
 		  List<String> listTeams = new ArrayList<String>(uniqueTeamSet);
            
            for(int i=0; i<listTeams.size();i++){
-           	for(int j=1;j<listTeams.size();j++){
+           	for(int j=i+1;j<listTeams.size();j++){
            		if (listTeams.get(j).equals(listTeams.get(i)))
    		            continue;
            		
-           		for(int k=2;k<listTeams.size();k++){
+           		for(int k=j+1;k<listTeams.size();k++){
            			
            			if (listTeams.get(k).equals(listTeams.get(i)) || listTeams.get(k).equals(listTeams.get(j)))
    		                continue;
@@ -104,7 +105,7 @@ public class DataManipulation2 {
            	}          	
            }
        
-           System.out.println("Triples Size: "+lines.size());
+          //System.out.println("Triples Size: "+lines.size());
        return lines;
       }
 
@@ -155,15 +156,15 @@ public class DataManipulation2 {
 	   	    String key = entry.getKey();
 	   	    ArrayList<String> pT = entry.getValue();
 	   	    
-	   	    System.out.println(key+": "+ pT + ", "+pT.size());
+	   	    //System.out.println(key+": "+ pT + ", "+pT.size());
 	   	    
 	   	    ArrayList<String> list = new ArrayList<String>();
     	  
 	   	    for(int i=0; i<pT.size();i++){
-             	for(int j=1;j<pT.size();j++){
+             	for(int j=i+1;j<pT.size();j++){
              		if (pT.get(j).equals(pT.get(i)))
      		            continue;
-             		for(int k=2;k<pT.size();k++){
+             		for(int k=j+1;k<pT.size();k++){
              			if (pT.get(k).equals(pT.get(i)) || pT.get(k).equals(pT.get(j)))
      		                continue;
              			String str = pT.get(i)+"_"+pT.get(j)+"_"+pT.get(k);
@@ -181,13 +182,16 @@ public class DataManipulation2 {
       	    //System.out.println("Key = " + entry1.getKey() + ", Value = " + entry1.getValue());
       	}
 	   	
+	   	//System.out.println(hMap.size());
 	   	return hMap;
    }
    
    private static Map<String,ArrayList<String>> getTripleTeamswith50Players(Map<String,ArrayList<String>> teams, Map<String,ArrayList<String>> players){
    
    
-       System.out.println("word size in"+players.size());
+       System.out.println("Players List size in: "+players.size());
+       System.out.println("teams List size in: "+teams.size());
+
 
        Iterator it = players.entrySet().iterator();
        while (it.hasNext()) {
@@ -217,8 +221,7 @@ public class DataManipulation2 {
        while (it1.hasNext()) {
            Map.Entry pair2 = (Map.Entry)it1.next();
            ArrayList<String> countList = (ArrayList)pair2.getValue();
-           if(countList.size()>=50){
-        	   
+           if(countList.size()>=45){
         	   System.out.println(pair2.getKey() + " = " + pair2.getValue());
         	   result.put((String)pair2.getKey(),(ArrayList)pair2.getValue());
            }
