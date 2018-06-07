@@ -11,8 +11,9 @@
  - k = number of unique teams
  - p = number of unique players
  
- #####  The overall Time Complexity is: 
-             Space Complexity is:
+ #####  The overall Program Complexity is: 
+             Time:
+             Space:
  #####  For individual methods, the space-time is as follows:
  
  #####  Steps for the Program2: 
