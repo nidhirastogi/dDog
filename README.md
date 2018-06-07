@@ -10,9 +10,14 @@
  - n = length of entire list from all years
  - k = number of unique teams
  - p = number of unique players
- #####  Steps for the Program: 
+ 
+ The overall Time Complexity is: 
+             Space Complexity is:
+ For individual methods, the space-time is as follows:
+ 
+ #####  Steps for the Program2: 
  1. Get all Unique Team Names	and player names - Time: O(n), Space : O(k)+O(p) = O(k+p)
  2. Sort List by Player names - O(n log n)
- 3. HashSet containing unique combination of 3 teams, in alphabetical order or team names (to avoid multiple of same combination of teams). Time - O(k3), Space O(k3)
+ 3. HashSet containing unique combination of 3 teams, in alphabetical order or team names (to avoid multiple of same combination of teams). Time - O(k3), Space O(k*k*k)
  4. HasSet in this Format : HashSet<String, List<List<String>,Integer>> -> hashset with key value pair. Here "key" is unique triple combination and value is a list of names of players and "count" of these players
  5. Finally select only those keys that have count in the value as greater than or equal to 50.
