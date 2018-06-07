@@ -53,9 +53,9 @@ public class DataManipulation2 {
         
         Map<String,ArrayList<String>> playerInTeams = getListPlayers(FILEPLAYER);
         
-       Map<String,ArrayList<String>> playerteamsTriples= getPlayersTeamsTriples(playerInTeams);
+        Map<String,ArrayList<String>> playerteamsTriples= getPlayersTeamsTriples(playerInTeams);
         
- //       Map<String,ArrayList<String>> finalOutput = getTripleTeamswith50Players(teamUniqueTriples,playerteamsTriples);
+        Map<String,ArrayList<String>> finalOutput = getTripleTeamswith50Players(teamUniqueTriples,playerteamsTriples);
 
    }
 
@@ -142,39 +142,44 @@ public class DataManipulation2 {
     	    //System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
     	}
        
-	    System.out.println(hMap.size());
+	    //System.out.println(hMap.size());
 
        return hMap;
     }
        
-   private static Map<String,ArrayList<String>> getPlayersTeamsTriples(Map<String,ArrayList<String>> playerTeam){
-    	  
+   private static Map<String,ArrayList<String>> getPlayersTeamsTriples(Map<String, ArrayList<String>> playerTeam){
+	   
    	   HashMap<String, ArrayList<String>> hMap = new HashMap<String, ArrayList<String>>();
    	   
-	   	for (Map.Entry<String,ArrayList<String>> entry : playerTeam.entrySet()) {
+	   	for (Map.Entry<String,ArrayList<String>> entry : playerTeam.entrySet()){
 	   	    String key = entry.getKey();
-	   	    ArrayList<String> playerTeams = entry.getValue();
-	
-   	   
-   		   ArrayList<String> list = new ArrayList<String>();
+	   	    ArrayList<String> pT = entry.getValue();
+	   	    
+	   	    System.out.println(key+": "+ pT + ", "+pT.size());
+	   	    
+	   	    ArrayList<String> list = new ArrayList<String>();
     	  
-    	  for(int i=0; i<playerTeams.size();i++){
-             	for(int j=1;j<playerTeams.size();j++){
-             		if (playerTeams.get(j).equals(playerTeams.get(i)))
+	   	    for(int i=0; i<pT.size();i++){
+             	for(int j=1;j<pT.size();j++){
+             		if (pT.get(j).equals(pT.get(i)))
      		            continue;
-             		for(int k=2;k<playerTeams.size();k++){
-             			if (playerTeams.get(k).equals(playerTeams.get(i)) || playerTeams.get(k).equals(playerTeams.get(j))||(playerTeams.get(j).equals(playerTeams.get(i))))
+             		for(int k=2;k<pT.size();k++){
+             			if (pT.get(k).equals(pT.get(i)) || pT.get(k).equals(pT.get(j)))
      		                continue;
-             			String str = playerTeams.get(i).replaceAll("\\p{P}","")+"_"+playerTeams.get(j).replaceAll("\\p{P}","")+"_"+playerTeams.get(k).replaceAll("\\p{P}","");
-             			System.out.println(str.trim());
+             			String str = pT.get(i)+"_"+pT.get(j)+"_"+pT.get(k);
+             			//System.out.println(str.trim());
              			//System.out.println(tempList.get(i));
              			list.add(str.trim());	          			
              		}
              	 }           	
              } 
     	  
-    	  hMap.put(key,list);  
+    	  hMap.put(key,list);
+    	  
       }
+	   	for (Map.Entry<String, ArrayList<String>> entry1 : hMap.entrySet()) {
+      	    //System.out.println("Key = " + entry1.getKey() + ", Value = " + entry1.getValue());
+      	}
 	   	
 	   	return hMap;
    }
