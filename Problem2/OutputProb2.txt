@@ -1,0 +1,6 @@
+Players List size in: 6308
+teams List size in: 562475
+BSN_CIN_NY1 has 45 players = [Connie Ryan, Allyn Stout, Josh Devore, Chet Nichols, Tony Cuccinello, Mike Smith, Wally Berger, Ernie Lombardi, George Harper, Ray Mueller, Jack Scott, Hank Schreiber, Larry Benton, Mike Donlin, Shad Barry, Vince DiMaggio, Bill McKechnie, Harry Smith, Dave Brain, Mike Sullivan, Les Mann, Jim Thorpe, Walter Holke, Buck Herzog, Jimmy Smith, Bill Rariden, Dolf Luque, Johnny Rawlings, Pat Ragan, Mike Gonzalez, Rube Marquard, Art Nehf, Cy Seymour, Jim Delahanty, Al Bridwell, Ray Starr, Nate Andrews, Buck Jordan, Hugh Poland, Willard Marshall, Red Lucas, Beals Becker, Cozy Dolan, Walker Cooper, Mike McCormick]
+
+
+// The maximum number of players that have played for 3-teams is 45. I couldn't find a team that had 50 players.
